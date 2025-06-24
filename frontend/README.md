@@ -49,11 +49,12 @@ node index.js
 Start the Frontend
 bash
 cd ../frontend
-npm start
+npm run dev
+
 
 Backend: Runs on http://localhost:5000
 
-Frontend: Runs on http://localhost:3000
+Frontend: Runs on http://localhost:5173
 
 Credits
 Built entirely by khouildi Iyed as a solo MERN stack project.
