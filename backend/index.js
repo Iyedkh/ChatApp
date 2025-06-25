@@ -17,8 +17,7 @@ app.use(cookieParser());
 app.use(
   cors({
     origin: [
-      'https://illustrious-maamoul-c1fa94.netlify.app',
-      'http://localhost:3000' // Add this for local testing
+      'https://illustrious-maamoul-c1fa94.netlify.app/'
     ],
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Added OPTIONS
