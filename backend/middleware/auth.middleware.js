@@ -1,3 +1,6 @@
+const jwt = require('jsonwebtoken');
+const User = require('../models/user.model');
+
 exports.protectRoute = async (req, res, next) => {
   try {
     // 1. Get token from cookies or header
@@ -48,4 +51,11 @@ exports.protectRoute = async (req, res, next) => {
       solution: "Please try again later or contact support"
     });
   }
+};
+// Add this to your auth.middleware.js
+exports.adminRoute = (req, res, next) => {
+  if (req.user.role !== 'admin') {
+    return res.status(403).json({ message: "Admin access required" });
+  }
+  next();
 };
