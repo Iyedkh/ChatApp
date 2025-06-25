@@ -17,11 +17,13 @@ app.use(cookieParser());
 app.use(
   cors({
     origin: [
-      'https://illustrious-maamoul-c1fa94.netlify.app'
+      'https://illustrious-maamoul-c1fa94.netlify.app',
+      'http://localhost:3000' // Add this for local testing
     ],
     credentials: true,
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization']
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Added OPTIONS
+    allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
+    exposedHeaders: ['Authorization'] // Add if you need client-side JS to read custom headers
   })
 );
 
