@@ -131,5 +131,6 @@ ini
 Copier
 Modifier
 REACT_APP_API_URL=https://<your-render-backend-url>
-After deployment, note your frontend Netlify URL (e.g., https://chatapp.netlify.app).
+
+app url : https://illustrious-maamoul-c1fa94.netlify.app/login
 
