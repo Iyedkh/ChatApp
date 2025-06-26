@@ -8,10 +8,8 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: [
-      'https://illustrious-maamoul-c1fa94.netlify.app'
-    ],
-    methods: ['GET', 'POST'],
+    origin: "http://localhost:5173",
+
     credentials: true
   },
 });
