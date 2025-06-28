@@ -5,10 +5,13 @@ const cookieParser = require('cookie-parser');
 const cors = require('cors')
 const { app, server} = require('./config/socket.js')
 
+const path = require('path');
 
 dotenv.config();
 
 const PORT = process.env.PORT;
+
+const __dirname = path.resolve();
 
 // Increase payload limit (e.g., to 50mb)
 app.use(express.json({ limit: '50mb' }));
@@ -28,6 +31,14 @@ const authRoutes = require('./routes/auth.route.js');
 const messageRoutes = require('./routes/message.route.js');
 app.use('/auth', authRoutes);
 app.use('/message', messageRoutes);
+
+if(process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '../frontend/dist')));
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, '../frontend/dist', 'index.html'));
+  })
+}
 
 
 server.listen(PORT, () => {
