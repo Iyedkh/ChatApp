@@ -11,7 +11,7 @@ dotenv.config();
 
 const PORT = process.env.PORT;
 
-const __dirname = path.resolve();
+//const __dirname = path.resolve();
 
 // Increase payload limit (e.g., to 50mb)
 app.use(express.json({ limit: '50mb' }));
