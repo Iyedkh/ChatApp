@@ -3,7 +3,7 @@ import { axiosInstance } from '../config/axios';
 import toast from "react-hot-toast";
 import { io } from 'socket.io-client';
 
-const BaseUrl =import.meta.env.MODE === "development" ? "http://localhost:5000" : "/";
+const BaseUrl ="https://jaxxx-d5q2.onrender.com";
 
 export const useAuthStore = create((set, get) => ({
   authUser: null,
