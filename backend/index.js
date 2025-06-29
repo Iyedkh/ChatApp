@@ -21,9 +21,6 @@ app.use(
   cors({
     origin: "http://localhost:5173",
     credentials: true,
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Added OPTIONS
-    allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
-    exposedHeaders: ['Authorization'] // Add if you need client-side JS to read custom headers
   })
 );
 
@@ -33,10 +30,10 @@ app.use('/auth', authRoutes);
 app.use('/message', messageRoutes);
 
 if(process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '/frontend/dist')));
+  app.use(express.static(path.join(__dirname, '../frontend/dist')));
 
   app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, '/frontend/dist', 'index.html'));
+    res.sendFile(path.join(__dirname, "../frontend", "dist", "index.html"));
   })
 }
 
